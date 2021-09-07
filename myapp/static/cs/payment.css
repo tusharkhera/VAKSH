@@ -1,0 +1,60 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+
+.btn {
+    background-color: var(--blue);
+  }
+  
+  .heading {
+    display: flex;
+    text-shadow: 2px 2px 2px black;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Abril Fatface', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    padding-left: 2rem;
+    margin: 5rem 0rem;
+    color: var(--blue);
+  }
+  
+  .heading h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+  }
+  
+  .heading span {
+    color: var(--green);
+    font-family: 'Abril Fatface', cursive;
+  }
+  
+  :root {
+    --green: #00d03a;
+    --blue: #00aff0;
+  }
+
+.payment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5rem auto;
+}
+
+.payment .qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    height: 40rem;
+    border: 2px solid black;
+}

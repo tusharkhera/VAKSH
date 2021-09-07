@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} VAKSHI | {{product.title}} {% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="../static/cs/product-detail.css">{% endblock style %}
+
+{% block content %}
+
+<div class="product">
+    <div class="pro-img">
+        <img src="{{product.product_image.url}}" alt="">
+        <div class="horz">
+            {% if product.is_inStock == 's' or product.is_inStock == 'S' %}
+            <form action="/add-to-cart" class="container-form">
+                <input type="hidden" name="prod_id" value="{{product.id}}">
+                <input type="hidden" name="prod_title" value="{{product.title}}">
+                <button type="submit" class="btn" id="sub-button">Add To Cart</button>
+            </form>
+            {% endif %}
+            {% if product.is_inStock == 's' or product.is_inStock == 'S' %}
+            <p style="color: rgb(36, 224, 18);">In Stock</p>
+            {% endif %}
+            {% if product.is_inStock == 'os' or product.is_inStock == 'OS' %}
+            <p style="color: red;">Out of Stock</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="pro-det">
+        <h1>{{product.title}}</h1>
+        <p class="price">₹ {{product.discounted_price}}</p>
+        {% if product.discounted == 'd' or product.discounted == 'D' %}
+        <p class="discounted">Discounted</p>
+        {% endif %}
+        <iframe width="300" height="200" src="{{product.prod_video}}" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <p>{{product.description}}</p>
+    </div>
+</div>
+
+{% endblock content %}

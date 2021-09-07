@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %} Vakshi | Cart {% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="../static/cs/cart.css">
+{% endblock style %}
+
+{% block content %}
+
+<h1 class="heading">Your Cart</h1>
+
+<div class="cart">
+    <div class="cart-container">
+
+        {% for cart in carts %}
+        <div class="cart-items">
+            <div class=" cart-image">
+                <img src="{{cart.product.product_image.url}}" class="img-fluid rounded-start cart-image">
+            </div>
+            <div class="card-body cart-content">
+                <h1 class="">{{cart.product.title}} </h5>
+                    <p> ₹ {{cart.product.discounted_price}}</p>
+                    <!-- <span class="card-text">{{cart.product.description}}</span> -->
+                    <div class="quantity">
+                        <label for="quantity">Quantity: </label> <a class="minus-cart" pid="{{cart.product.id}}"><i class="fas fa-minus-square fa-lg"></i></a><span id="quantity">{{cart.quantity}}</span> <a class="plus-cart" pid="{{cart.product.id}}"><i class="fas fa-plus-square fa-lg"></i></a>
+                    </div>
+                    <a class="remove-cart btn" pid="{{cart.product.id}}" class="btn">Remove Item</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="total-container">
+        <div style="display: flex; justify-content: center;">
+            <h1>Total Amount</h1>
+        </div>
+        <div class="amount">
+            <div class="left">
+                <p>Amount</p>
+            </div>
+            <div class="right">
+                <p>₹ <span id="amount">{{amount}} </span></p>
+            </div>
+        </div>
+        <div class="shipping">
+            <div class="left">
+                <p>Shipping</p>
+            </div>
+            <div class="right">
+                <p>₹ 50</p>
+            </div>
+        </div>
+        <div class="total">
+            <div class="left">
+                <p>Total</p>
+            </div>
+            <div class="right">
+                <p>₹ <span id="totalamount">{{totalamount}}</span></p>
+            </div>
+        </div>
+        <a href="{% url 'checkout' %}" class="btn">Place Order</a>
+
+        <p style="margin-top: 3rem; font-size: 20px; color: red;">**These are the minimal shipping charges, it may differ according to your pincode**</p>
+
+
+
+    </div>
+</div>
+
+
+{% endblock content %}

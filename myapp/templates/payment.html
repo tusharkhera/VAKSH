@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Vakshi | Payment {% endblock title %}
+
+{% block style %} <link rel="stylesheet" href="../static/cs/payment.css"> {% endblock style %}
+
+{% block content %}
+
+<marquee behavior="scroll" style="color: red; font-size: 30px;margin-top: 3rem;background-color: whitesmoke;" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+    **Please pay only after confirmation call from Vakshi ,  you'll receive a call within 24 hours**
+</marquee>
+
+
+<div class="payment">
+    <div class="qrcode">
+        <img src="../static/images/HDFC-.png" width="400" height="400" alt="">
+    </div>
+    <div class="bank-details">
+        <h1 class="heading" style="font-size: 40px; text-shadow: none;">HDFC Bank</h1>
+        <p style="font-size: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, consequatur.</p>
+    </div>
+</div>
+
+{% endblock content %}
+

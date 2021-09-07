@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %} Vakshi | Profile {% endblock title %} 
+{% block style %} <link rel="stylesheet" href="../static/cs/forms.css" /> {% endblock style %}} {% block content %}
+
+<div class="container-form">
+  <h1 class="heading">Profile {{request.user}}</h1>
+
+  <form action="" method="post" class="form" novalidate>
+    {% csrf_token %}
+    <ul>
+      {% for fm in form %}
+      <li>{{fm.label_tag}} {{fm}}</li>
+      {{fm.errors|striptags}} {% endfor %}
+    </ul>
+    <input id="sub-button" type="submit" value="submit" />
+  </form>
+  <ul>
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{message.tags}}" {% endif %}>
+      {{message}}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock content %}

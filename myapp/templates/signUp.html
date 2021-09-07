@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign Up {% endblock title %}
+
+{% block style %} <link rel="stylesheet" href="../static/cs/forms.css"> {% endblock style %}
+
+{% block navbar %}
+
+<div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="{% url 'home' %}" style="font-weight: bold; font-size: 23px;">Home</a>
+                <a href="{% url 'about' %}" style="font-weight: bold; font-size: 23px;">About Us</a>
+                <a href="{% url 'products' %}" style="font-weight: bold; font-size: 23px;">Shop</a>
+                <a href="#deal" style="font-weight: bold; font-size: 23px;">Disease Blogs</a>
+                {% if not request.user.is_authenticated %}
+                <a href="{% url 'log_in' %}" style="font-weight: bold; font-size: 23px; {{active}}">LogIn/SignUp</a>
+                {% endif %}
+                <a href="{% url 'contact' %}" style="font-weight: bold; font-size: 23px;">Contact Us</a>
+                <a href="" style="font-weight: bold; font-size: 23px;">FAQ</a>
+            </nav>
+
+{% endblock navbar %}
+
+{% block content %}
+
+<div class="container-form">
+
+<h1 class="heading">Sign Up</h1>
+<form action="" method="POST" class="form" novalidate>
+    {% csrf_token %}
+    <ul>
+    {% for fm in form %}
+    <li>{{fm.label_tag}}  {{fm}}</li>  {{fm.errors|striptags}} 
+    {% endfor %}
+</ul>
+    <input id="sub-button" class="submit" type="submit" value="submit">
+{% if messages %}
+<ul>
+{% for message in messages %}
+<li {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </li>
+{% endfor %}
+</ul>
+{% endif %}
+</form>
+<p > Existing User ?<a class="login-link" href="{% url 'log_in' %}">Log in</a></p>
+</div>
+{% endblock content %}
+

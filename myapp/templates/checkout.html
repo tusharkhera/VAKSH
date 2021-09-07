@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} Vakshi | Checkout {% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="../static/cs/checkout.css">
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-sm-6">
+      <h4 class="heading" style="font-size: 40px; text-shadow: none; margin-top: 0px;">Order Summary</h4>
+      {% for item in items %}
+      <div class="card mb-2" style="box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.466);">
+        <div class="card-body">
+          <h5>Product: {{item.product.title}}</h5>
+          <p>Quantity: {{item.quantity}}</p>
+          <p class="fw-bold">Price: ₹ {{item.total_cost}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <p class="fw-bold">Total Cost + ₹ 50 = ₹ {{totalamount}}</p>
+      <!-- <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure
+        optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil
+        in et quis?</small> -->
+    </div>
+    <div class="col-sm-4 offset-sm-1">
+      <h5 class="heading" style="font-size: 35px; text-shadow: none; margin-top: 6px;">Select Shipping Address</h5>
+      <form action="/payment-done">
+        {% for ad in add %}
+        <div class="card">
+        <div class="card-body" style="box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.466);">
+          <h5>{{ad.name}}</h5>
+          <p>{{ad.locality}}, {{ad.city}}, {{ad.state}} - {{ad.zipcode}}</p>
+        </div>
+    </div>
+    <div class="form-check mt-2 mb-5" style="display: flex; align-items: center;">
+      <input type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+      <p>&nbsp;</p>
+      <label for=""> Address: {{forloop.counter}} </label>
+    </div>
+    {% endfor %}
+    <div class="text-end">
+      <button type="submit" class="btn mt-3 px-5 fw-bold">Continue</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<br>
+{% endblock content %}

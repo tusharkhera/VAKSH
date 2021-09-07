@@ -1,0 +1,39 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+h5 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+label {
+    font-size: 15px;
+}
+
+
+@media (max-width:1000px) {
+    
+    
+    .heading {
+      font-size: 45px;
+    }
+  }
+
+
+  @media (max-width:660px){
+    *{
+        font-size: 80%;
+    }
+
+    .heading {
+        font-size: 40px;
+    }
+}

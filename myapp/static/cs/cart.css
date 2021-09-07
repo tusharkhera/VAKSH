@@ -1,0 +1,240 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+
+.btn {
+    background-color: var(--blue);
+  }
+  
+  .heading {
+    display: flex;
+    text-shadow: 2px 2px 2px black;
+    justify-content: center;
+    align-items: center;
+    /* font-family: 'Rozha One', serif; */
+    /* font-family: 'Cabin Sketch', cursive; */
+    /* font-family: 'Rye', cursive; */
+    font-family: 'Abril Fatface', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    /* border-left: .4rem solid var(--blue); */
+    padding-left: 2rem;
+    margin: 5rem 0rem;
+    color: var(--blue);
+  }
+  
+  .heading h1 {
+    /* font-family: 'Rozha One', serif; */
+    /* font-family: 'Cabin Sketch', cursive; */
+    /* font-family: 'Rye', cursive; */
+    font-family: 'Abril Fatface', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    /* border: 10px solid transparent;
+    border-image: url('../images/border.png') 30 round; */
+  }
+  
+  .heading span {
+    color: var(--green);
+    /* font-family: 'Rozha One', serif; */
+    /* font-family: 'Cabin Sketch', cursive; */
+    /* font-family: 'Rye', cursive; */
+    font-family: 'Abril Fatface', cursive;
+    /* border: 10px solid transparent;
+    border-image: url('../images/border.png') 30 round; */
+  }
+  
+  :root {
+    --green: #00d03a;
+    --blue: #00aff0;
+  }
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.cart {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5rem;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* border: 2px solid black; */
+    
+    margin: auto;
+}
+
+.total-container {
+    /* background-color: chartreuse; */
+    padding: 2rem;
+    width: 30%;
+    height: min-content;
+    display: flex;
+    /* border: 2px solid black; */
+    box-shadow: 2px 2px 5px black;
+    -webkit-box-shadow: 2px 2px 5px black;
+  -moz-box-shadow: 2px 2px 5px black;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+
+
+.amount {
+    display: flex;
+}
+
+#amount {
+    font-size: 20px;
+}
+
+#totalamount {
+    font-size: 20px;
+}
+
+.total {
+    display: flex;
+    border-top: 2px solid black;
+    padding-top: 1rem;
+    border-bottom: 2px solid black;
+}
+
+.shipping {
+    display: flex;
+}
+
+.left {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.right {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.cart-items {
+    display: flex;
+    /* border: 2px solid black; */
+    box-shadow: 2px 2px 5px black;
+    -webkit-box-shadow: 2px 2px 5px black;
+    -moz-box-shadow: 2px 2px 5px black;
+    margin: 2rem;
+    height: 250px;
+    width: fit-content;
+}
+
+/* .cart .cart-container .cart-items :hover {
+    box-shadow: 2px 2px 5px black;
+    -webkit-box-shadow: 2px 2px 5px black;
+    -moz-box-shadow: 2px 2px 5px black;
+} */
+
+.cart-content i {
+    margin: 1rem;
+    color: var(--blue);
+}
+
+.cart-content .quantity {
+    font-size: 20px;
+}
+
+.cart-image {
+    display: flex;
+    margin: 0rem auto;
+    width: 100%;
+    padding: 1rem;
+    /* border-right: 2px solid black; */
+}
+
+img {
+    width: fit-content;
+}
+
+.cart-content {
+    display: flex;
+    flex-direction: column;
+    width: 200%;
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+}
+
+#sub-button {
+    font-size: 24px;
+    padding: 0.5rem 1rem;
+    background-color: rgb(225, 225, 230);
+    box-shadow: 5px 5px 10px black;
+    border: 2px solid black;
+    margin: 2rem auto;
+}
+
+@media (max-width:450px){
+    html{
+      font-size: 50%;
+    }
+    .cart {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-block: 2rem;
+    }
+    .cart-container {
+        max-width: 100%;
+        margin-block: 2rem;
+    }
+
+    .total-container {
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width:1200px){
+
+    html{
+      font-size: 55%;
+    }
+  
+  }
+
+@media (max-width:1000px) {
+    
+    
+    .heading {
+      font-size: 45px;
+    }
+  }
+
+
+  @media (max-width:660px){
+    *{
+        font-size: 80%;
+    }
+
+    .heading {
+        font-size: 40px;
+    }
+}

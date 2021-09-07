@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAKSHI | HOME</title>
+    <link rel="shortcut icon" href="{%  static 'images/Layer1003.png' %}">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'cs/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cs/home.css' %}">
+    <link rel="stylesheet" href="{% static 'cs/popup.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'cs/index.css' %}"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Rye&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gotu&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="head">
+        <img src="../static/images/3915228.jpg" width="1600" height="725" alt="">
+        <header>
+            <!-- <div class="home-video">
+                <video autoplay muted loop id="myVideo">
+                    <source src="../static/videos/vakshi new.mp4" type="video/mp4">
+                </video>
+            </div> -->
+            <div class="header-1" id="top">
+                <div class="share">
+                    <span> follow us : </span>
+                    <!-- <a href="https://www.facebook.com/Vakshinutrition/" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="https://www.instagram.com/accounts/login/" class="fab fa-instagram"></a>
+                <a href="https://www.youtube.com/channel/UCVqpXjYeLkB7zGesjTGtJ7g/videos" class="fab fa-youtube"></a> -->
+                    <a href="https://www.facebook.com/Vakshinutrition/" target="blank"><img
+                            src="../static/images/facebook (1).png" alt=""></a>
+                    <a href="https://www.instagram.com/vakshi.organics/?hl=en" target="blank"><img
+                            src="../static/images/instagram (1).png" alt=""></a>
+                    <a href="https://www.youtube.com/c/VakshiOrganics/featured" target="blank"><img
+                            src="../static/images/youtube.png" alt=""></a>
+                </div>
+
+                <div class="call">
+                    <img src="../static/images/whatsapp.png" style="color: white; size: 3rem 3rem; margin-right: 2px;"
+                        alt="">
+                    <span> Whatsapp : </span>
+                    <a href="#">+91-9718-361-061</a>
+                </div>
+
+            </div>
+
+            <div class="header-2">
+
+                <a href="{% url 'home' %}" class="logo"><img id="logo" src="../static/images/vakshi_logo.png"
+                        style="height: 7rem;" alt=""></a>
+
+                <form action="" class="search-bar-container">
+                    <input type="search" id="search-bar" placeholder="Search for Disease / Product">
+                    <label for="search-bar" class="fas fa-search"></label>
+                </form>
+
+            </div>
+
+            <div class="header-3">
+
+                <div id="menu-bar" class="fas fa-bars"></div>
+
+                <nav class="navbar">
+                    <a href="{% url 'home' %}" style="font-weight: bold; font-size: 23px;{{active}}">Home</a>
+                    <a href="{% url 'about' %}" style="font-weight: bold; font-size: 23px;">About Us</a>
+                    <a href="{% url 'products' %}" style="font-weight: bold; font-size: 23px;">Shop</a>
+                    <a href="#deal" style="font-weight: bold; font-size: 23px;">Disease Blogs</a>
+                    {% if not request.user.is_authenticated %}
+                    <a href="{% url 'log_in' %}" style="font-weight: bold; font-size: 23px;">LogIn/SignUp</a>
+                    {% endif %}
+                    <a href="{% url 'contact' %}" style="font-weight: bold; font-size: 23px;">Contact Us</a>
+                    <a href="" style="font-weight: bold; font-size: 23px;">FAQ</a>
+                </nav>
+
+                <div class="icons">
+                    <a href="{% url 'show_cart' %}" class="fas fa-shopping-cart"></a>
+                    {% comment %} <a href="#" class="fas fa-heart"></a> {% endcomment %}
+                    <button class=" dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="background-color:transparent">
+                        <a href="{% url 'profile' %}" class="fas fa-user-circle"></a>
+                    </button>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item drop" style="font-size: 20px" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                        <li><a class="dropdown-item drop" style="font-size: 20px" href="{% url 'orders' %}">My
+                                Orders</a>
+                        </li>
+                        <li><a class="dropdown-item drop" style="font-size: 20px" href="#">Addresses</a></li>
+                        <li><a class="dropdown-item drop" style="font-size: 20px" href="{% url 'add_address' %}">Add New
+                                Address</a></li>
+                        <li><a class="dropdown-item drop" style="font-size: 20px"
+                                href="{% url 'password_change' %}">Change
+                                Password</a></li>
+                        <li><a class="dropdown-item drop" style="font-size: 20px" href="{% url 'log_out' %}">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="moto">
+            <h1>Go Organic </h1>
+            <h1>Go Healthy</h1>
+            <div class="btn">
+                <a href="{% url 'products' %}">ORDER NOW</a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div style="position: relative;">
+        <video autoplay muted loop id="myVideo">
+            <source src="../static/videos/ezgif-2-4f3a43e9f9c2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <!-- <img src="../static/images/ornament-2019452_1280.png" width="100%" height="1%" style="background-color: white;" alt=""> -->
+
+
+
+    <div class="daily-dose">
+        <div class="heading">
+            <h1>Vakshi's</h1>
+            <h1 style="color: rgb(36, 224, 18); font-size: 90px; margin-bottom: 2rem;">Daily Awareness</h1>
+            <h1>For Healthy Life</h1>
+        </div>
+
+        {% for item in items %}
+        <div class="daily-dose-content">
+            <div class="daily-dose-text">
+                <p>{{item.text}}</p>
+            </div>
+            <div class="daily-dose-image">
+                <img src="{{item.image.url}}"
+                    style="width:300px; height:300px;border-radius: 3rem;" alt="">
+            </div>
+            <div class="daily-dose-video">
+                <iframe width="300" height="300" style="border-radius: 3rem;"
+                    src="{{item.video}}" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+
+
+    
+
+
+    <!-- <div style="position: relative;">
+        <video autoplay muted loop id="myVideo">
+            <source src="../static/videos/ezgif-2-4f3a43e9f9c2.mp4" type="video/mp4">
+        </video>
+    </div> -->
+
+    <!-- <div id="carouselExampleCaptions" class="carousel slide top-car" data-bs-ride="carousel" style="position: relative;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../static/images/Scene-20.jpg" height="500px" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../static/images/Scene-19.jpg" height="500px" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../static/images/sidney-severin-R8Fg4uQfcGc-unsplash.jpg" height="500px" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div> -->
+
+
+    <section
+        style="background-color: white; display: flex; flex-direction: column; justify-content: center;align-items: center;padding-bottom: 5rem;">
+        <div class="heading">
+            <h1 style="font-size: 90px;">
+                Welcome to Vakshi Organics
+            </h1>
+        </div>
+        <iframe width="1200" height="500" src="https://www.youtube.com/embed/60JVFC04_1Q" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </section>
+
+
+    <div class="wheel">
+
+        <div class="heading">
+            <h1>Your <span>Food</span> </h1>
+        </div>
+        <div id="w0-modal" class="popup-overlay">
+            <div class="popup-content">
+                <button id="w0-close" class="close">&times;</button>
+                <h2>Nutrition or Poison ?</h2>
+                <p> w0</p>
+            </div>
+        </div>
+        <button id="w0-open" class="open"><h3>Nutrition or Poison ?</h3></button>
+      
+
+        <div class="top-content">
+            <img src="../static/images/grocery.png" alt="">
+            <div id="w1-modal" class="popup-overlay">
+                <div class="popup-content">
+                    <button id="w1-close" class="close">&times;</button>
+                    <h2>Groceries Product</h2>
+                    <p> w1</p>
+                </div>
+            </div>
+            <button id="w1-open" class="open"><p>Groceries Product</p></button>
+        </div>
+        <div class="mid-content">
+            <div class="left-mid-content">
+                <div class="food-content">
+                    <img src="../static/images/ayurvedic.png" alt="">
+                    <div id="w2-modal" class="popup-overlay">
+                        <div class="popup-content">
+                            <button id="w2-close" class="close">&times;</button>
+                            <h2>Ayurvedic Products</h2>
+                            <p> w2</p>
+                        </div>
+                    </div>
+                    <button id="w2-open" class="open"><p>Ayurvedic Products</p></button>
+                </div>
+                <div class="food-content" style="position: relative; left: -6rem;">
+                    <img src="../static/images/pooja.png" alt="">
+                    <div id="w3-modal" class="popup-overlay">
+                        <div class="popup-content">
+                            <button id="w3-close" class="close">&times;</button>
+                            <h2>Poojan Samagri</h2>
+                            <p> w3</p>
+                        </div>
+                    </div>
+                    <button id="w3-open" class="open"><p>Poojan Samagri</p></button>
+                </div>
+                <div class="food-content">
+                    <img src="../static/images/dairy.png" alt="">
+                    <div id="w4-modal" class="popup-overlay">
+                        <div class="popup-content">
+                            <button id="w4-close" class="close">&times;</button>
+                            <h2>Dairy Products</h2>
+                            <p> w4</p>
+                        </div>
+                    </div>
+                    <button id="w4-open" class="open"><p>Dairy Products</p></button>
+                </div>
+            </div>
+            <div class="mid-image-content">
+                <img src="../static/images/nature-2754285.svg" alt="">
+                <!-- <p style="position: relative; margin-left: -31rem;">Your Needs</p> -->
+            </div>
+            <div class="right-mid-content">
+                <div class="food-content">
+                    <img src="../static/images/fruits.png" alt="">
+                    <div id="w5-modal" class="popup-overlay">
+                        <div class="popup-content">
+                            <button id="w5-close" class="close">&times;</button>
+                            <h2>Fruits and Vegetables</h2>
+                            <p> w5</p>
+                        </div>
+                    </div>
+                    <button id="w5-open" class="open"><p>Fruits and Vegetables</p></button>
+                </div>
+                <div class="food-content" style="position: relative; right: -6rem;">
+                    <img src="../static/images/utensils.png" alt="">
+                    <div id="w6-modal" class="popup-overlay">
+                        <div class="popup-content">
+                            <button id="w6-close" class="close">&times;</button>
+                            <h2>Utensils</h2>
+                            <p> w6</p>
+                        </div>
+                    </div>
+                    <button id="w6-open" class="open"><p>Utensils</p></button>
+                </div>
+                <div class="food-content">
+                    <img src="../static/images/makeup-pouch.png" alt="">
+                    <div id="w7-modal" class="popup-overlay">
+                        <div class="popup-content">
+                            <button id="w7-close" class="close">&times;</button>
+                            <h2>Cosmetics</h2>
+                            <p> w7</p>
+                        </div>
+                    </div>
+                    <button id="w7-open" class="open"><p>Cosmetics</p></button>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-content">
+            <img src="../static/images/ladoo.png" alt="">
+            <div id="w8-modal" class="popup-overlay">
+                <div class="popup-content">
+                    <button id="w8-close" class="close">&times;</button>
+                    <h2>Sweets and Snacks</h2>
+                    <p> w8</p>
+                </div>
+            </div>
+            <button id="w8-open" class="open"><p>Sweets and Snacks</p></button>
+        </div>
+    </div>
+
+
+
+    <section class="product" id="product">
+
+        <h1 class="heading"><span>Organic Baskets &nbsp;</span> at Vakshi</h1>
+
+        <div class="box-container">
+
+            <div class="box" style="border: 2rem solid white; border-radius: 5rem;">
+                <img src="../static/images/basket-160442.svg" alt="">
+                <h3>Short Basket</h3>
+                <div class="price">1500/- (Monthly)</div>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="box" style="border: 2rem solid white; border-radius: 5rem;">
+                <img src="../static/images/47048.jpg" alt="">
+                <h3>Regular Basket</h3>
+                <div class="price">3500/- (Monthly)</div>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="box" style="border: 2rem solid white; border-radius: 5rem;">
+                <img src="../static/images/2778410.jpg" alt="">
+                <h3>Premium Basket</h3>
+                <div class="price">5000/- (Monthly)</div>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Trigger/Open The Modal -->
+
+    <div class="modal-button">
+        <div class="heading">
+            <h1>Why<span> Organic? </span></h1>
+        </div>
+        <div class="modal-button-content">
+            <p>One question definitely arises in everyone's mind that is "Why Organic ?" Let's find it Out ...</p>
+            <button class="btn" id="myOBtn">Why Organic</button>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="myOModal" class="modal">
+        <div class="modal-content why-organic">
+            <span class="oclose">&times;</span>
+            <div class="heading">
+                <h1>Why<span> Organic? </span></h1>
+            </div>
+            <div class="compare">
+                <table>
+                    <tr>
+                        <td style="border-right: 0.2rem solid #00aff0;">
+                            <ol>
+                                <li>Organic products are made up of manure compost which are natural fertilizers and
+                                    pest
+                                    are controlled by natural methods</li>
+                                <li>No growth harmones are being given to livestock for faster growth</li>
+                                <li>Gmo free feed gmo leads to internal organ Damage</li>
+                                <li>By organic means of production organic always tastes better</li>
+                                <li>Absence of foreign additives in them makes it richer in Antioxidants which helps
+                                    them in
+                                    building overall immune system this is why there is a sharp Rise to organic during
+                                    pandemic </li>
+                                <li>Organic food is relatively cheaper </li>
+                            </ol>
+                        </td>
+                        <td>
+                            <ol>
+                                <li>commercial farming includes use of chemical fertilizers pesticides which lead of
+                                    disases
+                                    like alzimer and cancer </li>
+                                <li>growth harmones are being given to live stock which imbalances their body hormones
+                                    and
+                                    reduces nutrition of your food</li>
+                                <li>gmo feed is there</li>
+                                <li>conventional method lowers downs the natural taste of any product </li>
+                                <li>genetically modified food shows a major reduction in immune system strength</li>
+                                <li>conventinal includes all the cost of damage it does to your body e.g :treatment
+                                    expenses, medical insurance expense lastly it costs your healthy life</li>
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="why-vakshi">
+        <div class="heading">
+            <h1><span>Why&nbsp;</span>Vakshi</h1>
+        </div>
+        <p>India's Leading Organic
+            Food Project</p>
+    </div>
+
+    <div class="benefit">
+        <div class="left-content">
+            <div class="ben-info-left">
+                <h1 style="color: rgb(36, 224, 18);">Free Health</h1>
+                <h1>Campaign</h1>
+                <a href="#">View More</a>
+            </div>
+            <div class="ben-info-left">
+                <h1 style="color: rgb(36, 224, 18);">Free Healthcare</h1>
+                <h1>Consultancy</h1>
+                <a href="#">View More</a>
+            </div>
+            <div class="ben-info-left">
+                <h1 style="color: rgb(36, 224, 18);">Door Step Delivery</h1>
+                <h1>PAN India</h1>
+                <a href="#">View More</a>
+            </div>
+
+        </div>
+        <div class="ben-image">
+            <img src="../static/images/vakshi_benifits.png" alt="">
+        </div>
+        <div class="right-content">
+            <div class="ben-info-right">
+                <h1 style="color: rgb(36, 224, 18);">Random Testings</h1>
+                <h1>at Vakshi</h1>
+                <a href="#">View More</a>
+            </div>
+            <div class="ben-info-right">
+                <h1 style="color: rgb(36, 224, 18);">Highest Quality</h1>
+                <h1>Highest Discount</h1>
+                <a href="#">View More</a>
+            </div>
+            <div class="ben-info-right">
+                <h1 style="color: rgb(36, 224, 18);">1000+ Organic</h1>
+                <h1>Certified Products</h1>
+                <a href="#">View More</a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-content">
+        <div class="ben-info-bottom">
+            <h1 style="color: rgb(36, 224, 18);">More than 10000</h1>
+            <h1>Happy Beneficiaries</h1>
+            <a href="#">View More</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="fluid-container">
+        <video playsinline autoplay muted loop>
+            <source src="../static/videos/homevideo.mp4" type="video/mp4">
+        </video>
+
+        <!-- <video playsinline autoplay muted loop>
+        <source src="../static/videos/production ID_4821690.mp4" type="video/mp4">
+    </video> -->
+        <div class="video-boxes">
+            <div class="video-box">
+                <p>How to Identify Organic</p>
+            </div>
+            <div class="video-box">
+                <p>If it's Organic , it's at Vakshi</p>
+            </div>
+            <!-- <div class="video-box">
+                <p>Learn and Earn</p>
+            </div> -->
+            <div class="video-box">
+                <p>Refer and Earn</p>
+            </div>
+            <!-- <div class="video-box">
+                <p>100% Certified Products</p>
+            </div> -->
+            <div class="video-box">
+                <p>Regular Random Testings</p>
+            </div>
+            <div class="video-box">
+                <p>Organic Quiz at Vakshi</p>
+            </div>
+            <div class="video-box">
+                <p>Work With Vakshi</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="points">
+        <ul>
+            <li>
+                <p>Organic <span>Certified Groceries</span> Grown Without Pesticides/Urea/Chemical.</p>
+            </li>
+            <li>
+                <p><span>No Use Of Artificial Colours</span> Flavours And Preservatives.</p>
+            </li>
+            <li>
+                <p>No Use of GMO Seeds, <span>Desi Seeds</span> Preferred.</p>
+            </li>
+            <li>
+                <p>No Adulteration ,<span>Premium Quality</span> Organic Certified Products</p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="fact">
+        <div class="container-fluid">
+            <div class="row counters">
+                <div class="col-md-6 fact-left wow slideInLeft">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="fact-icon">
+                                <a href="https://www.youtube.com/c/VakshiOrganics/featured" target="blank"><img
+                                        src="../static/images/youtube.png" alt=""></a>
+                            </div>
+                            <div class="fact-text">
+                                <h2 data-toggle="counter-up" style="font-family: 'Montserrat', sans-serif;">80K +</h2>
+                                <p>Active Subscribers</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="fact-icon">
+                                <a href="https://www.facebook.com/Vakshinutrition/" target="blank"><img
+                                        src="../static/images/facebook (1).png" alt=""></a>
+                            </div>
+                            <div class="fact-text">
+                                <h2 data-toggle="counter-up" style="font-family: 'Montserrat', sans-serif;">2000+</h2>
+                                <p>Active Followers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 fact-right wow slideInRight">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="fact-icon">
+                                <a href="https://www.instagram.com/vakshi.organics/?hl=en" target="blank"><img
+                                        src="../static/images/instagram (1).png" alt=""></a>
+                            </div>
+                            <div class="fact-text">
+                                <h2 data-toggle="counter-up" style="font-family: 'Montserrat', sans-serif;">1000+</h2>
+                                <p>Informatory Posts</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="fact-icon">
+                                <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TDM2LC9OKks3YLRSNagwtjRITktMMTBPNk0yNUqztDKoME8xTTZPNrY0STFMM0q0TPbiL0vMLs7IVMgvSk_My0wuBgDkeBXJ&q=vakshi+organics&oq=vakshi+orga&aqs=chrome.1.35i39i355j46i39i175i199j69i57j69i59l2j0i512l2j69i60.4561j0j15&sourceid=chrome&ie=UTF-8#"
+                                    target="blank"><img src="../static/images/icons8-google-480.png" alt=""></a>
+                            </div>
+                            <div class="fact-text">
+                                <h2 data-toggle="counter-up" style="font-family: 'Montserrat', sans-serif;">4.6/5.0</h2>
+                                <p>Google Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Trigger/Open The Modal -->
+    <div class="expensive">
+        <div class="heading">
+            <h1>Is <span> Organic Food</span></h1>
+            <h1>Expensive?</h1>
+        </div>
+        <div class="modal-button-content">
+            <p>Another interesting question could be "Is Organic Food Expensive ?" Let's find it out ...</p>
+            <button class="btn" id="myExBtn">Is Organic Food Expensive</button>
+        </div>
+
+    </div>
+
+
+
+
+    <div id="myExModal" class="modal">
+        <div class="modal-content expensive">
+            <span class="exclose">&times;</span>
+            <div class="heading">
+                <h1>Is <span> Organic Food</span></h1>
+                <h1>Expensive?</h1>
+            </div>
+            <div class="compare">
+                <table>
+                    <th>Current Lifestyle</th>
+                    <th>Organic Lifestyle</th>
+                    <tr>
+                        <td style="border-right: 0.2rem solid white;">
+                            <ol>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                food requirements
+                                            </td>
+                                            <td>
+                                                3000/-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                medicine
+                                            </td>
+                                            <td>
+                                                1000/-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                health supplements
+                                            </td>
+                                            <td>
+                                                500/-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                medical insurance
+                                            </td>
+                                            <td>
+                                                500/-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                total
+                                            </td>
+                                            <td>
+                                                5000/-(per person per month)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>lack of nutrition </li>
+                                <li>fatigue, weakness</li>
+                                <li>weak bones/ muscles</li>
+                                <li>poor metabolism</li>
+                                <li>extreme adulteration in ,oil ,ghee aata</li>
+                                <li>less immunity, more prone to diseases</li>
+                            </ol>
+                        </td>
+                        <td>
+                            <ol>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                food requirements
+                                            </td>
+                                            <td>
+                                                3500/-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                medicine
+                                            </td>
+                                            <td>
+                                                Zero
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                health supplements
+                                            </td>
+                                            <td>
+                                                Zero
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                medical insurance
+                                            </td>
+                                            <td>
+                                                Zero
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                total
+                                            </td>
+                                            <td>
+                                                3500/-(per person per month)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>nutrition rich food</li>
+                                <li>strong bones and muscles</li>
+                                <li>great metabolism</li>
+                                <li>no adulteration in food</li>
+                                <li>high immunity against diseases and viruses</li>
+                                <li>additional benefits : amazing health(bonus)</li>
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <!-- FOR DEMO PURPOSE -->
+        <div class="row">
+            <div class="mx-auto heading">
+                <h1>Vakshi's</h1> &nbsp;<span> Vision</span>
+            </div>
+        </div><!-- END -->
+
+
+        <div class="vakshi-vision">
+            <div class="content">
+                <div class="bg-info shadow-sm"
+                    style="top: -4rem; position: relative; font-size: 35px; color: white; padding: 2rem; border-radius: 10rem;">
+                    <i class="fa fa-quote-left"></i>
+                </div>
+                <p>May All Eat Healthy Food</p>
+                <p>May All Drink Healthy Water</p>
+                <p>May All Breathe Healthy Air</p>
+                <p>Let's Create A Prosperous Nation</p>
+                <p style="color: #00aff0;"><b>Together</b></p>
+                <p>-</p>
+                <footer>
+                    <img src="../static/images/india.png" alt="" height="30" width="30">
+                    <h2>"A Samridh Bharat"</h2>
+                    <img src="../static/images/india.png" alt="" height="30" width="30">
+                </footer>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="reviews">
+        <div class="heading">
+            <h1>Hear from Our</h1>
+            <h1><span>Beneficiaries</span></h1>
+        </div>
+        <div class="comment" id="box-shade">
+            <div class="video-box">
+                <video src="../static/videos/vid3.mp4" controls poster="../static/images/Screenshot_8.png"></video>
+            </div>
+            <div class="comment-card-body">
+                <h5>Beneficiary name</h5>
+                <p>This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+        <div class="comment" id="box-shade">
+            <div class="comment-card-body">
+                <h5>Beneficiary name</h5>
+                <p>This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="video-box">
+                <video src="../static/videos/vid4.mp4" controls poster="../static/images/Screenshot_9.png"></video>
+            </div>
+        </div>
+        <a href="#">View Testimonials</a>
+    </div>
+
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>About us</h3>
+                <p>Vakshi today is one of the leading Organic food Stores in India that houses one of the best and
+                    the
+                    most
+                    comprehensive range of Organic Foods.Its a unique project started with a vision to provide 100%
+                    safe,
+                    healthy, nutritious , organic certified food to our nation.Vakshi carries a vision to make our
+                    nation –
+                    Air Pollution , Water Pollution and Food Adulteration free in next 10 years and so is our dream
+                    of
+                    "Samridh Bharat".</p>
+                <a href="{% url 'about' %}" class="btn">Read More</a>
+            </div>
+            <div class="box">
+                <h3>Get Socialise</h3>
+                <a href="https://www.facebook.com/Vakshinutrition/" class="fab fa-facebook-f" target="blank"></a>
+                <!-- <a href="#" class="fab fa-twitter"></a> -->
+                <a href="https://www.instagram.com/accounts/login/" class="fab fa-instagram" target="blank"></a>
+                <a href="https://www.youtube.com/channel/UCVqpXjYeLkB7zGesjTGtJ7g/videos" class="fab fa-youtube"
+                    target="blank"></a>
+            </div>
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About Us</a>
+                <a href="{% url 'products' %}">Shop</a>
+                <a href="#">Disease Blogs</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
+                <a href="£">FAQ</a>
+            </div>
+            <div class="box">
+                <h3>Vakshi Organics</h3>
+                <div style="display: flex; flex-direction: row;"><i class="fas fa-map-marker-alt"></i>
+                    <p>Plot No.494, Opp. Gaur Ganga AB Society, Near Vaishali Metro Station, Vaishali, Ghaziabad,
+                        Uttar
+                        Pradesh - 201010</p>
+                </div>
+                <div style="display: flex;"><i class="fas fa-phone-square-alt"></i>
+                    <p>+91-120-4267208, 9718361061</p>
+                </div>
+                <div style="display: flex;"><i class="fas fa-envelope-square"></i>
+                    <p>vakshiorganics@gmail.com, info@vakshi.com</p>
+                </div>
+                <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+            </div>
+
+        </div>
+        <div class="credit">
+            <h1> © 2021 - Vakshi Enterprises LLP. | all rights reserved! </h1>
+            <!-- <h1>Powered by DMT.</h1> -->
+        </div>
+
+    </section>
+
+    <!-- scroll top button  -->
+    <a href="#top" class="scroll-top fas fa-angle-up"></a>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Vakshi | Contact Us{% endblock title %}
+
+{% block style %} <link rel="stylesheet" href="../static/cs/contact.css"> {% endblock style %}
+
+{% block navbar %}
+
+<div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="{% url 'home' %}" style="font-weight: bold; font-size: 23px;">Home</a>
+                <a href="{% url 'about' %}" style="font-weight: bold; font-size: 23px;">About Us</a>
+                <a href="{% url 'products' %}" style="font-weight: bold; font-size: 23px;">Shop</a>
+                <a href="#deal" style="font-weight: bold; font-size: 23px;">Disease Blogs</a>
+                {% if not request.user.is_authenticated %}
+                <a href="{% url 'log_in' %}" style="font-weight: bold; font-size: 23px;">LogIn/SignUp</a>
+                {% endif %}
+                <a href="{% url 'contact' %}" style="font-weight: bold; font-size: 23px; {{active}}">Contact Us</a>
+                <a href="" style="font-weight: bold; font-size: 23px;">FAQ</a>
+            </nav>
+
+{% endblock navbar %}
+
+{% block content %}
+
+<!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">Get in Touch</h1>
+
+        <div class="row">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.3820888055716!2d77.33739351503661!3d28.64827598241161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfad07c5b52f9%3A0x7d5c7c394d1f2a9c!2sVakshi%20Organics!5e0!3m2!1sen!2sin!4v1625989415387!5m2!1sen!2sin"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <form action="">
+
+                <div class="inputBox">
+                    <input type="text" required>
+                    <label>Name</label>
+                </div>
+                <div class="inputBox">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="number" required>
+                    <label>Number</label>
+                </div>
+                <div class="inputBox">
+                    <textarea required name="" id="" cols="30" rows="10"></textarea>
+                    <label>Message</label>
+                </div>
+
+                <input type="submit" value="Send message" class="btn">
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- contact section ends -->
+
+{% endblock content %}

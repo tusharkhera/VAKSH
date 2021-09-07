@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Vakshi | Add New Shipping Address {% endblock title %}
+
+{% block style %} <link rel="stylesheet" href="../static/cs/forms.css"> {% endblock style %}}
+
+{% block content %}
+
+<div class="container-form"> 
+
+<h1 >Add New Shipping Address</h1>
+
+<form action="" method="post" class="form" novalidate>
+    {% csrf_token %}
+    <ul>
+    {% for fm in form %}
+    <li>{{fm.label_tag}}  {{fm}} </li> {{fm.errors|striptags}}
+    {% endfor %}
+    </ul>
+    <input id='sub-button' type="submit" value="submit">
+</form>
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %} 
+    {{error}} 
+    {% endfor %}
+    {% endif %}
+    {% comment %} <p>change Your Password.. <a href="{% url 'password_change' %}">Change Password</a></p>
+    <button type="submit"><a href="{% url 'log_out' %}">Log Out</a></button> {% endcomment %}
+</div>
+
+{% endblock content %}
