@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Vakshi | Honey/Sugar/Sweetner{% endblock title %}
+
+{% block style %}<link rel="stylesheet" href="../static/cs/products.css">{% endblock style %}
+
+{% block content %}
+    
+    <!-- product section starts  -->
+<section class="product" id="product">
+
+    <h1 class="heading"> Organic Honey/Sugar/Sweetner </h1>
+
+    <div class="box-container">
+        {% for item in items %}
+        <div class="box">
+            {% if item.discounted == 'd' or item.discounted == 'D' %}
+                <span class="discount">Discounted</span>
+            {% endif %}
+            <a href="{% url 'product-detail' item.id %}" style="text-decoration: none;">
+            <img src="{{item.product_image.url}}" alt="">
+            <h3>{{item.title}}</h3>
+            <div class="price">{{item.discounted_price}}</div>
+        </a>
+            {% if item.is_inStock == 'os' or item.is_inStock == 'OS' %}
+                <p class="stock" style="color: red;">Out of Stock</p>
+            {% else %}
+            <form action="/add-to-cart" class="container-form">
+                <input type="hidden" name="prod_id" value="{{item.id}}">
+                <input type="hidden" name="prod_title" value="{{item.title}}">
+                <button type="submit" class="btn" id="sub-button">Add To Cart</button>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock content %}

@@ -57,8 +57,9 @@
   
   .category .box-container .box img{
     /* height: 100%; */
-    min-width: fit-content;
-    object-fit:cover;
+    height: 30rem;
+    width: 30rem;
+    object-fit: cover !important;
   }
   
   .category .box-container .box .content{

@@ -4,18 +4,28 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 CATEGORY_CHOICES = (
-    ('groceries', 'groceries'),
-    ('milk products', 'milk products'),
-    ('clay vessels', 'clay vessels'),
+    ('organic groceries', 'organic groceries'),
+    ('dairy products', 'dairy products'),
+    ('cooking vessels', 'cooking vessels'),
     ('ayurvedic herbs and herbal juices', 'ayurvedic herbs and herbal juices'),
-    ('gluten free products', 'gluten free products'),
+    ('poojan samagri', 'poojan samagri'),
     ('ready to eat', 'ready to eat'),
     ('beverages', 'beverages'),
     ('personal care products', 'personal care products'),
-    ('organic Teas', 'organic Teas'),
+    ('sweets and snacks', 'sweets and snacks'),
     ('miscellaneous', 'miscellaneous'),
     ('natural air purifiers', 'natural air purifiers'),
     ('vegetable and fruits', 'vegetable and fruits'),
+    ('Breakfast Cereals', 'Breakfast Cereals'),
+    ('Oils & Ghee', 'Oils & Ghee'),
+    ('Dry Fruits', 'Dry Fruits'),
+    ('flour', 'flour'),
+    ('rice', 'rice'),
+    ('pulses', 'pulses'),
+    ('millets', 'millets'),
+    ('spices', 'spices'),
+    ('honey/sugar/sweetner', 'honey/sugar/sweetner'),
+    ('tea', 'tea'),
 )
 
 class Product(models.Model):

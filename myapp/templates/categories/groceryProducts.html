@@ -9,7 +9,7 @@
     <!-- product section starts  -->
 <section class="product" id="product">
 
-    <h1 class="heading"> Our products </h1>
+    <h1 class="heading"> Organic Groceries </h1>
 
     <div class="box-container">
         {% for item in items %}
@@ -17,28 +17,11 @@
             {% if item.discounted == 'd' or item.discounted == 'D' %}
                 <span class="discount">Discounted</span>
             {% endif %}
-            {% comment %} <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div> {% endcomment %}
             <a href="{% url 'product-detail' item.id %}" style="text-decoration: none;">
             <img src="{{item.product_image.url}}" alt="">
             <h3>{{item.title}}</h3>
-            <!-- <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div> -->
-            <!-- <div class="quantity">
-                <span> quantity : </span>
-                <input type="number" min="1" max="100" value="1">
-            </div> -->
             <div class="price">{{item.discounted_price}}</div>
         </a>
-            <!-- <a href="#" class="btn">add to cart</a> -->
             {% if item.is_inStock == 'os' or item.is_inStock == 'OS' %}
                 <p class="stock" style="color: red;">Out of Stock</p>
             {% else %}

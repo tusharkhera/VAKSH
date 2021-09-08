@@ -9,7 +9,7 @@
     <!-- product section starts  -->
 <section class="product" id="product">
 
-    <h1 class="heading"> Our products </h1>
+    <h1 class="heading"> Ayurvedic Products </h1>
 
     <div class="box-container">
         {% for item in items %}
@@ -17,27 +17,20 @@
             {% if item.discounted == 'd' or item.discounted == 'D' %}
                 <span class="discount">Discounted</span>
             {% endif %}
-            
-            {% comment %} {% if item.discounted == 'nd' or item.discounted == 'ND' %}
-                <span class="discount">Non-Discounted</span>
-            {% endif %} {% endcomment %}
-
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
             <a href="{% url 'product-detail' item.id %}" style="text-decoration: none;">
             <img src="{{item.product_image.url}}" alt="">
             <h3>{{item.title}}</h3>
             <div class="price">{{item.discounted_price}}</div>
         </a>
-            <!-- <a href="#" class="btn">add to cart</a> -->
+            {% if item.is_inStock == 'os' or item.is_inStock == 'OS' %}
+                <p class="stock" style="color: red;">Out of Stock</p>
+            {% else %}
             <form action="/add-to-cart" class="container-form">
                 <input type="hidden" name="prod_id" value="{{item.id}}">
                 <input type="hidden" name="prod_title" value="{{item.title}}">
                 <button type="submit" class="btn" id="sub-button">Add To Cart</button>
             </form>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

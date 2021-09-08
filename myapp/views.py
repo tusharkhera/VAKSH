@@ -39,7 +39,7 @@ def ayurvedicProduct(request):
     items = Product.objects.filter(category = 'ayurvedic herbs and herbal juices')
     return render(request, 'categories/ayurvedic.html', {"items":items})
 
-def glutenProduct(request):
+def poojanProduct(request):
     items = Product.objects.filter(category = 'gluten free products')
     return render(request, 'categories/glutten.html', {"items":items})
 
@@ -70,6 +70,46 @@ def naturalProduct(request):
 def vegetableProduct(request):
     items = Product.objects.filter(category = 'vegetable and fruits')
     return render(request, 'categories/vegetable.html', {"items":items})
+
+def poojanProduct(request):
+    items = Product.objects.filter(category = 'poojan samagri')
+    return render(request, 'categories/poojan.html', {"items":items})
+
+def dryFruitsProduct(request):
+    items = Product.objects.filter(category = 'Dry Fruits')
+    return render(request, 'categories/dryFruits.html', {"items":items})
+
+def flourProduct(request):
+    items = Product.objects.filter(category = 'flour')
+    return render(request, 'categories/flour.html', {"items":items})
+
+def honeyProduct(request):
+    items = Product.objects.filter(category = 'honey/sugar/sweetner')
+    return render(request, 'categories/honey.html', {"items":items})
+
+def milletsProduct(request):
+    items = Product.objects.filter(category = 'millets')
+    return render(request, 'categories/millets.html', {"items":items})
+
+def oilsProduct(request):
+    items = Product.objects.filter(category = 'Oils & Ghee')
+    return render(request, 'categories/oils.html', {"items":items})
+
+def pulsesProduct(request):
+    items = Product.objects.filter(category = 'pulses')
+    return render(request, 'categories/pulses.html', {"items":items})
+
+def riceProduct(request):
+    items = Product.objects.filter(category = 'rice')
+    return render(request, 'categories/rice.html', {"items":items})
+
+def spicesProduct(request):
+    items = Product.objects.filter(category = 'spices')
+    return render(request, 'categories/spices.html', {"items":items})
+
+def sweetsProduct(request):
+    items = Product.objects.filter(category = 'sweets and snacks')
+    return render(request, 'categories/sweets.html', {"items":items})
 
 class ProductDetailView(View):
     def get(self,request, pk):

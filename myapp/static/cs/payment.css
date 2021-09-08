@@ -5,31 +5,23 @@
     outline: none; border:none;
     text-decoration: none;
     transition: all .2s ease-in-out;
+
   }
 
 .btn {
     background-color: var(--blue);
   }
   
-  .heading {
-    display: flex;
-    text-shadow: 2px 2px 2px black;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Abril Fatface', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 100px;
-    padding-left: 2rem;
-    margin: 5rem 0rem;
-    color: var(--blue);
+  p {
+    font-size: 20px;
   }
   
-  .heading h1 {
+  h1 {
     font-family: 'Abril Fatface', cursive;
     font-style: normal;
     font-weight: normal;
-    font-size: 100px;
+    font-size: 36px;
+    margin-bottom: 3rem;
   }
   
   .heading span {
@@ -46,7 +38,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
     margin: 5rem auto;
 }
 
@@ -55,6 +47,38 @@
     justify-content: center;
     align-items: center;
     width: 40rem;
-    height: 40rem;
-    border: 2px solid black;
+}
+
+.payment .qrcode img {
+  width: 400px;
+}
+
+.bank-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.detail-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  border: 1rem solid var(--blue);
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
