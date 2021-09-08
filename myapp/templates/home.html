@@ -359,8 +359,30 @@
         <h1 class="heading"><span>Organic Baskets &nbsp;</span> at Vakshi</h1>
 
         <div class="box-container">
+        {% for basket in baskets %}
+        <div class="box">
+            {% if basket.discounted == 'd' or basket.discounted == 'D' %}
+                <span class="discount">Discounted</span>
+            {% endif %}
+            <a href="{% url 'product-detail' basket.id %}" style="text-decoration: none;">
+            <img src="{{basket.product_image.url}}" alt="">
+            <h3>{{basket.title}}</h3>
+            <div class="price">{{basket.discounted_price}}</div>
+        </a>
+            {% if basket.is_inStock == 'os' or basket.is_inStock == 'OS' %}
+                <p class="stock" style="color: red;">Out of Stock</p>
+            {% else %}
+            <form action="/add-to-cart" class="container-form">
+                <input type="hidden" name="prod_id" value="{{basket.id}}">
+                <input type="hidden" name="prod_title" value="{{basket.title}}">
+                <button type="submit" class="btn" id="sub-button">Add To Cart</button>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>   
 
-            <div class="box" style="border: 2rem solid white; border-radius: 5rem;">
+            {% comment %} <div class="box" style="border: 2rem solid white; border-radius: 5rem;">
                 <img src="../static/images/basket-160442.svg" alt="">
                 <h3>Short Basket</h3>
                 <div class="price">1500/- (Monthly)</div>
@@ -377,7 +399,7 @@
                 <h3>Premium Basket</h3>
                 <div class="price">5000/- (Monthly)</div>
                 <a href="#" class="btn">Add to Cart</a>
-            </div>
+            </div> {% endcomment %}
         </div>
     </section>
 

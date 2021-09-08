@@ -20,13 +20,14 @@
 }
 
 .pro-img {
-    width: fit-content;
+    width: 30%;
     display: flex;
     flex-direction: column;
 }
 
 .pro-img img {
-    width: fit-content;
+    width: 40rem;
+    object-fit: fill;
 }
 
 .pro-det {

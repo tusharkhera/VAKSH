@@ -12,7 +12,8 @@ from django.http import JsonResponse
 # Create your views here.
 def home(request):
     items = DailyAwareness.objects.all()
-    return render(request, 'home.html', {'active':'color: #00aff0; background-color: white; border-radius: 2rem; padding: 1rem;', 'items':items})
+    baskets = Product.objects.filter(category = 'baskets')
+    return render(request, 'home.html', {'active':'color: #00aff0; background-color: white; border-radius: 2rem; padding: 1rem;', 'items':items, 'baskets':baskets})
 
 def products(request):
     return render(request, 'products.html', {'active':'color: #00aff0; background-color: white; border-radius: 2rem; padding: 1rem;'})
@@ -110,6 +111,10 @@ def spicesProduct(request):
 def sweetsProduct(request):
     items = Product.objects.filter(category = 'sweets and snacks')
     return render(request, 'categories/sweets.html', {"items":items})
+
+def basketsProduct(request):
+    items = Product.objects.filter(category = 'baskets')
+    return render(request, 'categories/baskets.html', {"items":items})
 
 class ProductDetailView(View):
     def get(self,request, pk):

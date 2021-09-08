@@ -26,6 +26,7 @@ CATEGORY_CHOICES = (
     ('spices', 'spices'),
     ('honey/sugar/sweetner', 'honey/sugar/sweetner'),
     ('tea', 'tea'),
+    ('baskets', 'baskets')
 )
 
 class Product(models.Model):
