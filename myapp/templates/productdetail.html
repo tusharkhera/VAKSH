@@ -11,9 +11,11 @@
     <div class="pro-img">
         <div id="carouselExampleCaptions" class="carousel slide top-car" data-bs-ride="carousel">
             <div class="carousel-indicators">
+                {% for p in pics %}
                 <button type="button" data-bs-target="#carouselExampleCaptions"
                     data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"
-                    aria-current="true"></button>
+                    aria-current="true" aria-label="Slide {{ forloop.counter0 }}"></button>
+                    {% endfor %}
             </div>
             <div class="carousel-inner">
 
@@ -22,21 +24,17 @@
                     <img src="{{p.images.url}}" class="d-block " alt="...">
                 </div>
                 {% endfor %}
-
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+
             </div>
         </div>
-        <!-- 
-        {% for p in pics %}
-                    <img src="{{p.images.url}}" class="d-block " alt="...">
-                {% endfor %} -->
 
 
         <img src="" alt="">

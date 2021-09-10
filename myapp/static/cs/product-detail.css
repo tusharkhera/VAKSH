@@ -20,14 +20,19 @@
 }
 
 .pro-img {
-    width: 30%;
+    width: 150%;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s;
 }
 
 .pro-img img {
-    width: 40rem;
-    object-fit: fill;
+    width: 100%;
+    object-fit: cover;
+}
+
+.pro-img :hover {
+    transform: scale(1.1);
 }
 
 .pro-det {
@@ -70,4 +75,32 @@ iframe {
 
 .horz p {
     margin-top: 2rem;
+}
+
+
+@media (max-width:1200px){
+
+    html{
+      font-size: 55%;
+    }
+  
+  }
+
+@media (max-width:1000px) {
+    .product {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 36px;
+      }
+
+    p {
+        font-size: 20px !important;
+    }
+    .pro-img {
+        width: max-content;
+        margin: auto;
+    }
 }
