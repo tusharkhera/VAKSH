@@ -1,6 +1,6 @@
 from django import contrib
 from django.shortcuts import redirect, render, HttpResponseRedirect, resolve_url
-from .models import Customer, DailyAwareness, OrderPlaced, Product, Cart
+from .models import Customer, DailyAwareness, OrderPlaced, Product, Cart, ProductImage
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.views import View
@@ -25,15 +25,15 @@ def about(request):
     return render(request, 'about.html', {'active':'color: #00aff0; background-color: white; border-radius: 2rem; padding: 1rem;'})
 
 def groceryProduct(request):
-    items = Product.objects.filter(category = 'groceries')
+    items = Product.objects.filter(category = 'organic groceries')
     return render(request, 'categories/groceryProducts.html', {"items":items})
 
 def milkProduct(request):
-    items = Product.objects.filter(category = 'milk products')
+    items = Product.objects.filter(category = 'dairy products')
     return render(request, 'categories/milkproducts.html', {"items":items})
 
 def clayProduct(request):
-    items = Product.objects.filter(category = 'clay vessels')
+    items = Product.objects.filter(category = 'cooking vessels')
     return render(request, 'categories/clayProducts.html', {"items":items})
 
 def ayurvedicProduct(request):
@@ -41,7 +41,7 @@ def ayurvedicProduct(request):
     return render(request, 'categories/ayurvedic.html', {"items":items})
 
 def poojanProduct(request):
-    items = Product.objects.filter(category = 'gluten free products')
+    items = Product.objects.filter(category = 'poojan samagri')
     return render(request, 'categories/glutten.html', {"items":items})
 
 def readyProduct(request):
@@ -57,7 +57,7 @@ def personalProduct(request):
     return render(request, 'categories/personal.html', {"items":items})
 
 def organicProduct(request):
-    items = Product.objects.filter(category = 'organic Teas')
+    items = Product.objects.filter(category = 'tea')
     return render(request, 'categories/organic.html', {"items":items})
 
 def miscellaneousProduct(request):
@@ -72,8 +72,8 @@ def vegetableProduct(request):
     items = Product.objects.filter(category = 'vegetable and fruits')
     return render(request, 'categories/vegetable.html', {"items":items})
 
-def poojanProduct(request):
-    items = Product.objects.filter(category = 'poojan samagri')
+def breakfastProduct(request):
+    items = Product.objects.filter(category = 'Breakfast Cereals')
     return render(request, 'categories/poojan.html', {"items":items})
 
 def dryFruitsProduct(request):
@@ -119,7 +119,8 @@ def basketsProduct(request):
 class ProductDetailView(View):
     def get(self,request, pk):
         product = Product.objects.get(pk=pk)
-        return render(request, 'productdetail.html', {'product':product})
+        pics = ProductImage.objects.filter(product=product)
+        return render(request, 'productdetail.html', {'product':product, 'pics':pics})
 
 class SignUpView(View):
     def get(self,request):

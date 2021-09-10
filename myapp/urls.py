@@ -37,6 +37,7 @@ urlpatterns = [
     path('sweets-products/', views.sweetsProduct, name='sweets-products'),
     path('vegtable-products/', views.vegetableProduct, name='vegetable-products'),
     path('basket-products/', views.basketsProduct, name='baskets-products'),
+    path('breakfast-products/', views.breakfastProduct, name='breakfast-products'),
 
 
 

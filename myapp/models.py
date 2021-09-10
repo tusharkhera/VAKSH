@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+
 CATEGORY_CHOICES = (
     ('organic groceries', 'organic groceries'),
     ('dairy products', 'dairy products'),
@@ -41,6 +42,10 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    images = models.FileField(upload_to='productimg')
 
 class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

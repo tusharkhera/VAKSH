@@ -9,7 +9,37 @@
 
 <div class="product">
     <div class="pro-img">
-        <img src="{{product.product_image.url}}" alt="">
+        <div id="carouselExampleCaptions" class="carousel slide top-car" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"
+                    aria-current="true"></button>
+            </div>
+            <div class="carousel-inner">
+
+                {% for p in pics %}
+                <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}" data-bs-interval="3000">
+                    <img src="{{p.images.url}}" class="d-block " alt="...">
+                </div>
+                {% endfor %}
+
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- 
+        {% for p in pics %}
+                    <img src="{{p.images.url}}" class="d-block " alt="...">
+                {% endfor %} -->
+
+
+        <img src="" alt="">
         <div class="horz">
             {% if product.is_inStock == 's' or product.is_inStock == 'S' %}
             <form action="/add-to-cart" class="container-form">
