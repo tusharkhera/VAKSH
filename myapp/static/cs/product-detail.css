@@ -4,7 +4,7 @@
   }
 
 *{
-    font-family: 'Gotu', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border:none;
@@ -48,8 +48,7 @@ p {
 h1 {
     font-family: 'Gotu', sans-serif;
     font-style: normal;
-    font-weight: normal;
-    font-size: 34px !important;
+    font-size: 34px ;
 }
 
 .discounted {
@@ -100,7 +99,8 @@ iframe {
         font-size: 20px !important;
     }
     .pro-img {
-        width: max-content;
+        width: 100%;
+        object-fit: cover;
         margin: auto;
     }
 }

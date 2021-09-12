@@ -16,7 +16,7 @@
 }
 
 *{
-  font-family: 'Gotu', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
   /* text-transform: capitalize; */
@@ -142,11 +142,14 @@ section{
 }
 
 .call a {
-  font-family: Quicksand;
-  font-style: normal;
   font-weight: bold;
   font-size: 36px;
   text-shadow: 1px 1px 1px white;
+}
+
+.call img {
+  width: 5rem;
+  height: 2rem;
 }
 
 .header-1 a {
@@ -370,6 +373,11 @@ section{
     font-size: 10px;
   }
 
+  .credit h1 {
+    font-size: 30px !important;
+    font-weight: bold;
+  }
+
 
 
 
@@ -445,8 +453,8 @@ section{
   
     .header-3 .navbar a{
       display: block;
-      margin:1.5rem 0;
-      padding:1.5rem;
+      margin:1rem 0;
+      padding:0.5rem;
       color: black;
       /* border-radius: .5rem; */
       /* border:.1rem solid rgba(0,0,0,.3); */
@@ -513,12 +521,19 @@ section{
   }
 
   .heading {
-      font-size: 40px;
+      font-size: 40px !important;
+      text-shadow: none !important;
   }
 }
 
 @media (max-width:360px){
-  .heading {
-      font-size: 30px !important;
+
+  p {
+    font-size: 16px;
+  }
+
+  .credit h1 {
+    font-size: 20px !important;
+    font-weight: bold;
   }
 }
