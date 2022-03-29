@@ -96,6 +96,6 @@ class OrderPlaced(models.Model):
         return self.quantity * self.product.discounted_price
 
 class DailyAwareness(models.Model):
-    text = models.CharField(max_length=100000)
+    text = models.TextField(max_length=16382)
     image = models.ImageField(upload_to='awarenessImage')
-    video = models.CharField(max_length=10000)
+    video = models.CharField(max_length=1000)

@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
             name='DailyAwareness',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField(max_length=100000)),
+                ('text', models.CharField(max_length=1000)),
                 ('image', models.ImageField(upload_to='awarenessImage')),
-                ('video', models.CharField(max_length=10000)),
+                ('video', models.CharField(max_length=1000)),
             ],
         ),
     ]

@@ -1,216 +1,142 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock title %}</title>
-    <link rel="shortcut icon" href="{%  static 'images/Layer1003.png' %}" />
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="shortcut icon" href="{%  static 'images/Layer1003.png' %}" />
 
-    <!-- font awesome cdn link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'cs/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'cs/base.css' %}" />
-    {% block style %}{% endblock style %}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Rye&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gotu&display=swap" rel="stylesheet">
-  </head>
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-  <body>
-    <header>
-      <div class="header-1" id="top">
-        <div class="share">
-          <span> follow us : </span>
-          <a href="https://www.facebook.com/Vakshinutrition/"
-             target="blank"><img src="../static/images/facebook (1).png" alt=""
-          /></a>
-          <a href="https://www.instagram.com/vakshi.organics/?hl=en"
-          target="blank" ><img src="../static/images/instagram (1).png" alt=""
-          /></a>
-          <a href="https://www.youtube.com/c/VakshiOrganics/featured"
-          target="blank" ><img src="../static/images/youtube.png" alt=""
-          /></a>
-        </div>
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="{% static 'cs/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'cs/base.css' %}" />
+  {% block style %}{% endblock style %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Rye&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gotu&display=swap" rel="stylesheet">
+</head>
 
-        <div class="call">
-          <img
-            src="../static/images/whatsapp.png"
-            style="color: white; margin-right: 2px"
-            alt=""
-          />
-          <span> Whatsapp : </span>
-          <a href="#">+91-9718-361-061</a>
-        </div>
+<body>
+  <header>
+    <div class="header-1" id="top">
+      <div class="share">
+        <span> follow us : </span>
+        <a href="https://www.facebook.com/Vakshinutrition/" target="blank"><img src="../static/images/facebook (1).png"
+            alt="" /></a>
+        <a href="https://www.instagram.com/vakshi.organics/?hl=en" target="blank"><img
+            src="../static/images/instagram (1).png" alt="" /></a>
+        <a href="https://www.youtube.com/c/VakshiOrganics/featured" target="blank"><img
+            src="../static/images/youtube.png" alt="" /></a>
       </div>
 
-      <div class="header-2">
-        <a href="{% url 'home' %}" class="logo"
-          ><img
-            id="logo"
-            src="../static/images/vakshi_logo.png"
-            style="height: 7rem"
-            alt=""
-        /></a>
-
-        <form action="" class="search-bar-container">
-          <input type="search" id="search-bar" placeholder="search here..." />
-          <label for="search-bar" class="fas fa-search"></label>
-        </form>
+      <div class="call">
+        <img src="../static/images/whatsapp.png" style="color: white; margin-right: 2px" alt="" />
+        <span> Whatsapp : </span>
+        <a href="#">+91-9718-361-061</a>
       </div>
+    </div>
 
-      <div class="header-3">
-        {% block navbar %}
+    <div class="header-2">
+      <a href="{% url 'home' %}" class="logo"><img id="logo" src="../static/images/vakshi_logo.png" style="height: 7rem"
+          alt="" /></a>
 
-        <div id="menu-bar" class="fas fa-bars"></div>
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="search here..." />
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </div>
 
-        <nav class="navbar">
-          <a href="{% url 'home' %}" style="font-weight: bold; font-size: 23px"
-            >Home</a
-          >
-          <a href="{% url 'about' %}" style="font-weight: bold; font-size: 23px"
-            >About Us</a
-          >
-          <a
-            href="{% url 'products' %}"
-            style="font-weight: bold; font-size: 23px"
-            >Shop</a
-          >
-          <a href="#deal" style="font-weight: bold; font-size: 23px"
-            >Disease Blogs</a
-          >
-          {% if not request.user.is_authenticated %}
-          <a
-            href="{% url 'log_in' %}"
-            style="font-weight: bold; font-size: 23px"
-            >LogIn/SignUp</a
-          >
-          {% endif %}
-          <a
-            href="{% url 'contact' %}"
-            style="font-weight: bold; font-size: 23px"
-            >Contact Us</a
-          >
-          <a href="" style="font-weight: bold; font-size: 23px">FAQ</a>
-        </nav>
+    <div class="header-3">
+      {% block navbar %}
 
-        {% endblock navbar %}
+      <div id="menu-bar" class="fas fa-bars"></div>
 
-        <div class="icons">
-          <a href="{% url 'show_cart' %}" class="fas fa-shopping-cart"></a>
-          {% comment %} <a href="#" class="fas fa-heart"></a> {% endcomment %}
-          <button
-            class="dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton2"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            style="background-color: transparent"
-          >
-            <a href="{% url 'profile' %}" class="fas fa-user-circle"></a>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <li>
-              <a
-                class="dropdown-item drop"
-                style="font-size: 20px"
-                href="{% url 'profile' %}"
-                >Profile</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item drop"
-                style="font-size: 20px"
-                href="{% url 'orders' %}"
-                >My Orders</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item drop" style="font-size: 20px" href="#"
-                >Addresses</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item drop"
-                style="font-size: 20px"
-                href="{% url 'add_address' %}"
-                >Add New Address</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item drop"
-                style="font-size: 20px"
-                href="{% url 'password_change' %}"
-                >Change Password</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item drop"
-                style="font-size: 20px"
-                href="{% url 'log_out' %}"
-                >Log Out</a
-              >
-            </li>
-          </ul>
-        </div>
+      <nav class="navbar">
+        <a href="{% url 'home' %}" style="font-weight: bold; font-size: 23px">Home</a>
+        <a href="{% url 'about' %}" style="font-weight: bold; font-size: 23px">About Us</a>
+        <a href="{% url 'products' %}" style="font-weight: bold; font-size: 23px">Shop</a>
+        <a href="#deal" style="font-weight: bold; font-size: 23px">Disease Blogs</a>
+        {% if not request.user.is_authenticated %}
+        <a href="{% url 'log_in' %}" style="font-weight: bold; font-size: 23px">LogIn/SignUp</a>
+        {% endif %}
+        <a href="{% url 'contact' %}" style="font-weight: bold; font-size: 23px">Contact Us</a>
+        <a href="" style="font-weight: bold; font-size: 23px">FAQ</a>
+      </nav>
+
+      {% endblock navbar %}
+
+      <div class="icons">
+        <a href="{% url 'show_cart' %}" class="fas fa-shopping-cart"></a>
+        {% comment %} <a href="#" class="fas fa-heart"></a> {% endcomment %}
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+          aria-expanded="false" style="background-color: transparent">
+          <a href="{% url 'profile' %}" class="fas fa-user-circle"></a>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <li>
+            <a class="dropdown-item drop" style="font-size: 20px" href="{% url 'profile' %}">Profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item drop" style="font-size: 20px" href="{% url 'orders' %}">My Orders</a>
+          </li>
+          <li>
+            <a class="dropdown-item drop" style="font-size: 20px" href="#">Addresses</a>
+          </li>
+          <li>
+            <a class="dropdown-item drop" style="font-size: 20px" href="{% url 'add_address' %}">Add New Address</a>
+          </li>
+          <li>
+            <a class="dropdown-item drop" style="font-size: 20px" href="{% url 'password_change' %}">Change Password</a>
+          </li>
+          <li>
+            <a class="dropdown-item drop" style="font-size: 20px" href="{% url 'log_out' %}">Log Out</a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </div>
+  </header>
 
-    {% block content %} | {% endblock content %}
-    <!-- footer section starts  -->
-    {% block footer %}
-    <section class="footer">
-      <div class="credit">
-        <h1>© 2021 - Vakshi Enterprises LLP. | all rights reserved!</h1>
-        {% comment %}
-        <h1>Powered by DMT.</h1>
-        {% endcomment %}
-      </div>
-    </section>
-    {% endblock footer %}
-    <!-- footer section ends -->
+  {% block content %} | {% endblock content %}
+  <!-- footer section starts  -->
+  {% block footer %}
+  <section class="footer">
+    <div class="credit">
+      <h1>© 2021 - Vakshi Enterprises LLP. | all rights reserved!</h1>
+      {% comment %}
+      <h1>Powered by DMT.</h1>
+      {% endcomment %}
+    </div>
+  </section>
+  {% endblock footer %}
+  <!-- footer section ends -->
 
-    <!-- scroll top button  -->
-    <a href="#top" class="scroll-top fas fa-angle-up"></a>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- scroll top button  -->
+  <a href="#top" class="scroll-top fas fa-angle-up"></a>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- custom js file link  -->
-    <script
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-      type="text/javascript"
-    ></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/popper.js' %}"></script>
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
+  <!-- custom js file link  -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
 </html>
